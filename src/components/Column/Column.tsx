@@ -46,7 +46,7 @@ const Column: React.FC<{column: ColumnType, books: Array<IBook>}> = ({ column, b
                     {(draggableProvided, draggableSnapshot) => (
                       <Flex
                         mb="1rem"
-                        h="200px"
+                        h="220px"
                         bg="card-bg"
                         rounded="3px"
                         p="1.5rem"

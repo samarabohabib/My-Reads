@@ -1,6 +1,7 @@
 # MyReads: A Book Tracking App
 
 ## src dir structure
+
 - **assets:** till now it contains the localization files.
 - **components:** contains the reusable components.
 - **config:** contains configs and public constants for the app.
@@ -10,9 +11,10 @@
 - **services:** contains the state management (store and slices) and the API calls.
 - **utils:** contains the function and utilities used across the app.
 
-
 ## Business flow.
+
 - Data is grabbed from the API.
+- in case of API failure, an error component is rendered.
 - In Home Page, Books are displayed.
 - Based on the shelf property in each item, the book is attached to a column.
 - The main page shows three shelves for books. Each book is shown on the correct shelf, along with its title and all of its authors. Each bookshelf is a reusable component.
@@ -23,13 +25,12 @@
 - When the browser is refreshed, the same information is displayed on the page.
 - The Books details page displays book's image, title, rate, desc, and all possible book's data.
 
-
 ## used npm packages.
+
 - @reduxjs/toolkit
 - react-router v6
 - react-beautiful-dnd
 - chakra-ui
-
 
 In the project directory, you can run:
 
