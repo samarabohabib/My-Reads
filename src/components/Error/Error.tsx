@@ -14,8 +14,8 @@ const Error: React.FC = () => {
             justify="center"
         >
             <Box textAlign="center">
-                <Heading as="h1" fontSize="7xl">Something Went Wrong ‼️</Heading>
-                <Link to="/" onClick={() => window.location.reload()}>Try Again 🔄</Link>
+                <Heading as="h1" fontSize="5xl">Something Went Wrong ‼️</Heading>
+                <Link reloadDocument={true} to="/" >Try Again 🔄</Link>
             </Box>
         </Flex>
     )
