@@ -7,7 +7,7 @@ const Book: React.FC<{book: IBook}> = ({book}) => {
         <Flex justify="space-around">
 
             <Box maxWidth="40%">
-                <Image height="15vh" width="15vh" src={book.imageLinks.smallThumbnail} alt={book.title} />
+                <Image height="15vh" width="15vh" src={book.imageLinks?.smallThumbnail} alt={book.title} />
             </Box>
 
             <Box ml="5" maxWidth="60%">
@@ -18,7 +18,7 @@ const Book: React.FC<{book: IBook}> = ({book}) => {
                     {book.subtitle}
                 </Heading>
                 <Text size="xs" mt="3" fontSize="14px">
-                    <b>By</b> {book.authors.slice().join(', ')}
+                    <b>By</b> {book.authors?.slice().join(', ')}
                 </Text>
                 <Text size="xs" mt="2" fontSize="14px">
                     <b>Publisher: </b>{book.publisher || 'Unknown'}

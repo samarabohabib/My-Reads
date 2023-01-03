@@ -35,5 +35,3 @@ export const search = (query: string, maxResults: []) =>
     },
     body: JSON.stringify({ query, maxResults }),
   })
-    .then((res) => res.json())
-    .then((data) => data.books);

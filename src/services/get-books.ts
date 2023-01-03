@@ -26,7 +26,7 @@ export const getBooks = () => {
         }
 
         try {
-            const response = await sendRequest(); // send request
+            const response = await sendRequest(); // send request    
             const jsonResponse = await response.json();
             
             const books: IBook[] = jsonResponse.books;
@@ -55,6 +55,7 @@ const constructColumns = (data: IBook[]): Column[] => {
     let wantToReadBooks: number[] = [];
     let currentlyReadingBooks: number[] = [];
     let readBooks: number[] = [];
+    let uncategorizedBooks: number[] = [];
 
     data.forEach((item: IBook) => {
         switch (item.shelf) {
@@ -67,10 +68,18 @@ const constructColumns = (data: IBook[]): Column[] => {
             case 'read':
                 readBooks.push(item.index as number);
                 break;
+            default:
+                uncategorizedBooks.push(item.index as number);
+                break;
         }
     });
 
     return [
+        {
+            id: "uncategorized",
+            title: "Uncategorized Books",
+            bookIds: [...uncategorizedBooks],
+        },
         {
             id: "wantToRead",
             title: "Want To Read",

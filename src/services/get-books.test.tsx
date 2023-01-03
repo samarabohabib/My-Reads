@@ -24,8 +24,8 @@ describe('get-books test', () => {
     const state = store.getState();
 
     expect(state.books.books.length).toEqual(1);
-    expect(state.books.columns.length).toEqual(3);
-    expect(state.books.columns[0].bookIds.length).toEqual(1);
+    expect(state.books.columns.length).toEqual(4);
+    expect(state.books.columns[1].bookIds.length).toEqual(1);
   });
 
 });

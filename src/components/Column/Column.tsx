@@ -24,15 +24,17 @@ const Column: React.FC<{column: ColumnType, books: Array<IBook>}> = ({ column, b
         mb="1.5rem"
         minH="60px"
       >
-        <Text fontSize="17px" fontWeight={600} color="subtle-text" data-testid="colTitle">
-          {column.title}
-        </Text>
+          <Text fontSize="17px" fontWeight={600} color="subtle-text" data-testid="colTitle">
+            {column.title}
+          </Text>
+
+        
       </Flex>
 
       <Droppable droppableId={column.id}>
         {(droppableProvided, droppableSnapshot) => (
           <Flex
-            px="1.5rem"
+            px="1.3rem"
             flex={1}
             flexDir="column"
             ref={droppableProvided.innerRef}
@@ -46,10 +48,10 @@ const Column: React.FC<{column: ColumnType, books: Array<IBook>}> = ({ column, b
                     {(draggableProvided, draggableSnapshot) => (
                       <Flex
                         mb="1rem"
-                        h="220px"
+                        h="250px"
                         bg="card-bg"
                         rounded="3px"
-                        p="1.5rem"
+                        p="1rem"
                         outline="2px solid"
                         justify="space-evenly"
                         outlineColor={

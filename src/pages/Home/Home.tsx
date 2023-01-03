@@ -14,6 +14,7 @@ import { getBooks } from "../../services/get-books";
 import { booksActions } from "../../store/slices/books-slice";
 import { RootState } from "../../store/store";
 import Error from "../../components/Error";
+import { searchBooks } from "../../services/search-books";
 
 
 const Home: React.FC = () => {
@@ -25,7 +26,7 @@ const Home: React.FC = () => {
     const showSpinner = useSelector((state: RootState) => state.ui.showSpinner);
     const apiError = useSelector((state: RootState) => state.books.apiError);
 
-    
+
     useEffect(() => {
 
         dispatch(getBooks());
@@ -39,7 +40,8 @@ const Home: React.FC = () => {
         const { destination, source } = result;
 
         // If user tries to drop in an unknown destination
-        if (!destination) return;
+        if (!destination || destination.droppableId === 'uncategorized') return;
+
     
         // if the user drags and drops back in the same position
         if ( destination.droppableId === source.droppableId) {
@@ -68,14 +70,14 @@ const Home: React.FC = () => {
 
 
         const book: IBook = booksState.books.find(book => book.index === source.index) as IBook;
-        update(book, destinationCol.id).then(res => console.log(res));
+        let colId = destinationCol.id === "uncategorized" ? "None" : destinationCol.id;
+        update(book, colId).then(res => console.log(res));
     
     };
 
-
     const onChangeInput = (value: string) => {
-
         dispatch(booksActions.setSearchQuery(value));
+        dispatch(searchBooks(value));
     }
 
     if (showSpinner) {
@@ -128,12 +130,12 @@ const Home: React.FC = () => {
                     <Input width="60%" height="50px"  placeholder='Search For A Book..' onChange={(e) => onChangeInput(e.target.value.toLowerCase())} />
                 </Flex>
 
-                <Flex justify="space-between" px="4rem">
+                <Flex justify="space-between" px="3rem">
 
                     {booksState.columns.map(column => {
                         
                         const books: Array<IBook> = [];
-                        column.bookIds.forEach((index) => {
+                        column.bookIds.forEach((index) => {      
                             const book =  booksState.books.find(book => book.index === index);
                             if (book) {
                                 books.push(book);
