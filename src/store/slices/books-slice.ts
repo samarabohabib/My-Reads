@@ -31,9 +31,6 @@ const bookSlice = createSlice({
         setSearchQuery: (state, action) => {
             state.searchQuery = action.payload;
         },
-        setUncategorizedSearchQuery: (state, action) => {
-            state.uncategorizedSearchQuery = action.payload;
-        },
         setApiError: (state, action) => {
             state.apiError = action.payload;
         }

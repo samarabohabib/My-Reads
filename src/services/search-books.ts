@@ -5,7 +5,7 @@ import { search } from "./booksAPI";
 
 
 /**
- * call schools data service
+ * call search books data service
  */
 export const searchBooks = (searchQuery: string = "") => {
 

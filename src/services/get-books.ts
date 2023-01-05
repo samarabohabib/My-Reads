@@ -7,7 +7,7 @@ import { getAll } from "./booksAPI";
 
 
 /**
- * call schools data service
+ * call get books data service
  */
 export const getBooks = () => {
     return async (dispatch: AppDispatch) => {
